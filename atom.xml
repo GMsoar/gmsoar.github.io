@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mr.Ge&#39;s Blog</title>
+  
+  <subtitle>Do More and More,Say Less and Less.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://gmsoar.github.io/"/>
+  <updated>2019-07-10T10:52:37.974Z</updated>
+  <id>https://gmsoar.github.io/</id>
+  
+  <author>
+    <name>Mr.Ge</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://gmsoar.github.io/hello-world/"/>
+    <id>https://gmsoar.github.io/hello-world/</id>
+    <published>2019-07-13T13:20:21.459Z</published>
+    <updated>2019-07-10T10:52:37.974Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="你好，世界" scheme="https://gmsoar.github.io/tags/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%96%E7%95%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Eclipse快捷键整理</title>
+    <link href="https://gmsoar.github.io/Eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%95%B4%E7%90%86/"/>
+    <id>https://gmsoar.github.io/Eclipse快捷键整理/</id>
+    <published>2019-07-13T12:02:30.000Z</published>
+    <updated>2019-07-13T12:46:52.681Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 style="text-align:center;">Eclipse快捷键大全</h1>Ctrl+1 快速修复(最经典的快捷键,就不用多说了)<br>Ctrl+D: 删除当前行 <br>Ctrl+Alt+↓ 复制当前行到下一行(复制增加)<br>Ctrl+Alt+↑ 复制当前行到上一行(复制增加)<br>Alt+↓ 当前行和下面一行交互位置(特别实用,可以省去先剪切,再粘贴了)<br>Alt+↑ 当前行和上面一行交互位置(同上)<br><a id="more"></a>Alt+← 前一个编辑的页面<br>Alt+→ 下一个编辑的页面(当然是针对上面那条来说了)<br>Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性<br>Shift+Enter 在当前行的下一行插入空行(这时鼠标可以在当前行的任一位置,不一定是最后)<br>Shift+Ctrl+Enter 在当前行插入空行(原理同上条)<br>Ctrl+Q 定位到最后编辑的地方<br>Ctrl+L 定位在某行 (对于程序超过100的人就有福音了)<br>Ctrl+M 最大化当前的Edit或View (再按则反之)<br>Ctrl+/ 注释当前行,再按则取消注释<br>Ctrl+O 快速显示 OutLine<br>Ctrl+T 快速显示当前类的继承结构<br>Ctrl+W 关闭当前Editer<br>Ctrl+K 参照选中的Word快速定位到下一个<br>Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示)<br>Ctrl+/(小键盘) 折叠当前类中的所有代码<br>Ctrl+×(小键盘) 展开当前类中的所有代码<br>Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替)<br>Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作)<br>Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes <br>line中显示没有找到了,查一个单词时,特别实用,这个功能Idea两年前就有了)<br>Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查)<br>Ctrl+Shift+F4 关闭所有打开的Editer<br>Ctrl+Shift+X 把当前选中的文本全部变味小写<br>Ctrl+Shift+Y 把当前选中的文本全部变为小写<br>Ctrl+Shift+F 格式化当前代码<br>Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之)<br><h3>下面的快捷键是重构里面常用的,本人就自己喜欢且常用的整理一下(注:一般重构的快捷键都是Alt+Shift开头的了)</h3>Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力)<br>Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用)<br>Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定)<br>Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候)<br>Alt+Shift+F 把Class中的local变量变为field变量 (比较实用的功能)<br>Alt+Shift+I 合并变量(可能这样说有点不妥Inline)<br>Alt+Shift+V 移动函数和变量(不怎么常用)<br>Alt+Shift+Z 重构的后悔药(Undo)<br><p><span style="font-weight:bold">编辑</span><br>作用域&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;快捷键<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找并替换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+F<br>文本编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找上一个&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+Shift+K<br>文本编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找下一个&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+K<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;撤销&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+Z<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复制&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+C<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;恢复上一个选择&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alt+Shift+↓<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剪切&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+X<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;快速修正&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl1+1<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容辅助&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alt+/<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全部选中&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+A<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上下文信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alt+？<br>Alt+Shift+?<br>Ctrl+Shift+Space<br>Java编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示工具提示描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F2<br>Java编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择封装元素&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alt+Shift+↑<br>Java编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择上一个元素&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alt+Shift+←<br>Java编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择下一个元素&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alt+Shift+→<br>文本编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增量查找&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+J<br>文本编辑器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增量逆向查找&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+Shift+J<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粘贴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+V<br>全局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重做&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+Y </p><p><span style="font-weight:bold">查看</span><br>作用域                 功能                 快捷键<br>全局                 放大                 Ctrl+=<br>全局                 缩小                 Ctrl+- </p><p><span style="font-weight:bold">窗口</span><br>作用域                 功能                快捷键<br>全局                 激活编辑器             F12<br>全局                 切换编辑器             Ctrl+Shift+W<br>全局                 上一个编辑器             Ctrl+Shift+F6<br>全局                 上一个视图             Ctrl+Shift+F7<br>全局                 上一个透视图             Ctrl+Shift+F8<br>全局                 下一个编辑器             Ctrl+F6<br>全局                 下一个视图             Ctrl+F7<br>全局                 下一个透视图             Ctrl+F8<br>文本编辑器             显示标尺上下文菜单     Ctrl+W<br>全局                 显示视图菜单             Ctrl+F10<br>全局                 显示系统菜单             Alt+- </p><p><span style="font-weight:bold">导航</span><br>作用域                 功能                 快捷键<br>Java编辑器             打开结构             Ctrl+F3<br>全局                 打开类型             Ctrl+Shift+T<br>全局                 打开类型层次结构         F4<br>全局                 打开声明             F3<br>全局                 打开外部javadoc         Shift+F2<br>全局                 打开资源             Ctrl+Shift+R<br>全局                 后退历史记录             Alt+←<br>全局                 前进历史记录             Alt+→<br>全局                 上一个                 Ctrl+,<br>全局                 下一个                 Ctrl+.<br>Java编辑器             显示大纲             Ctrl+O<br>全局                 在层次结构中打开类型  Ctrl+Shift+H<br>全局                 转至匹配的括号         Ctrl+Shift+P<br>全局                 转至上一个编辑位置     Ctrl+Q<br>Java编辑器             转至上一个成员         Ctrl+Shift+↑<br>Java编辑器             转至下一个成员         Ctrl+Shift+↓<br>文本编辑器             转至行                 Ctrl+L </p><p><span style="font-weight:bold">搜索</span><br>作用域                 功能                 快捷键<br>全局                 出现在文件中             Ctrl+Shift+U<br>全局                 打开搜索对话框         Ctrl+H<br>全局                 工作区中的声明         Ctrl+G<br>全局                 工作区中的引用         Ctrl+Shift+G </p><p><span style="font-weight:bold">文本编辑</span><br>作用域                 功能                 快捷键<br>文本编辑器             改写切换             Insert<br>文本编辑器             上滚行                 Ctrl+↑<br>文本编辑器             下滚行                Ctrl+↓ </p><p><span style="font-weight:bold">文件</span><br>作用域                 功能                 快捷键<br>全局                 剪切                 Ctrl+X<br>全局                    保存                    Ctrl+S<br>全局                 打印                 Ctrl+P<br>全局                 关闭                 Ctrl+F4<br>全局                 全部保存             Ctrl+Shift+S<br>全局                 全部关闭             Ctrl+Shift+F4<br>全局                 属性                 Alt+Enter<br>全局                 新建                 Ctrl+N </p><p><span style="font-weight:bold">项目</span><br>作用域                 功能                 快捷键<br>全局                 全部构建                Ctrl+B </p><p><span style="font-weight:bold">源代码</span><br>作用域                 功能                 快捷键<br>Java编辑器             格式化                 Ctrl+Shift+F<br>Java编辑器             取消注释             Ctrl+\<br>Java编辑器             注释                 Ctrl+/<br>Java编辑器             添加导入             Ctrl+Shift+M<br>Java编辑器             组织导入             Ctrl+Shift+O </p><p>Java编辑器 使用try/catch块来包围 未设置，太常用了，所以在这里列出,建议自己设置。<br>也可以使用Ctrl+1自动修正。 </p><p><span style="font-weight:bold">运行</span><br>作用域                 功能                 快捷键<br>全局                 单步返回                 F7<br>全局                 单步跳过              F6<br>全局                 单步跳入              F5<br>全局                 单步跳入选择               Ctrl+F5<br>全局                 调试上次启动             F11<br>全局                 继续                  F8<br>全局                 使用过滤器单步执行      Shift+F5<br>全局                 添加/去除断点          Ctrl+Shift+B<br>全局                 显示                  Ctrl+D<br>全局                 运行上次启动             Ctrl+F11<br>全局                 运行至行                 Ctrl+R<br>全局                 执行                      Ctrl+U </p><p><span style="font-weight:bold">重构</span><br>作用域                 功能                 快捷键<br>全局                 撤销重构             Alt+Shift+Z<br>全局                 抽取方法             Alt+Shift+M<br>全局                 抽取局部变量             Alt+Shift+L<br>全局                 内联                 Alt+Shift+I<br>全局                 移动                 Alt+Shift+V<br>全局                 重命名                 Alt+Shift+R<br>全局                 重做                 Alt+Shift+Y</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 style=&quot;text-align:center;&quot;&gt;Eclipse快捷键大全&lt;/h1&gt;
+Ctrl+1 快速修复(最经典的快捷键,就不用多说了)&lt;br&gt;
+Ctrl+D: 删除当前行 &lt;br&gt;
+Ctrl+Alt+↓ 复制当前行到下一行(复制增加)&lt;br&gt;
+Ctrl+Alt+↑ 复制当前行到上一行(复制增加)&lt;br&gt;
+Alt+↓ 当前行和下面一行交互位置(特别实用,可以省去先剪切,再粘贴了)&lt;br&gt;
+Alt+↑ 当前行和上面一行交互位置(同上)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java开发IDE之Eclipse" scheme="https://gmsoar.github.io/categories/Java%E5%BC%80%E5%8F%91IDE%E4%B9%8BEclipse/"/>
+    
+    
+      <category term="Eclipse" scheme="https://gmsoar.github.io/tags/Eclipse/"/>
+    
+  </entry>
+  
+</feed>
