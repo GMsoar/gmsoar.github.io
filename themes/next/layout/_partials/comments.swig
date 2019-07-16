@@ -36,6 +36,17 @@
 
   {% elif theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
     <div class="comments" id="comments">
+        <script>
+            new Valine({
+                av: AV,
+                el: '.comments',
+                notify: false, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
+                verify: false,
+                app_id: '{{ theme.valine.appId }}',
+                app_key: '{{ theme.valine.appKey }}',
+                placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+            });
+        </script>
     </div>
 
   {% elif theme.gitalk.enable %}
