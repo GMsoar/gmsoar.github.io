@@ -500,16 +500,6 @@
 
           
           
-            <span id="/Eclipse快捷键整理/" class="post-meta-item leancloud_visitors" data-flag-title="Eclipse快捷键整理">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
 
           
             <span class="post-meta-item">
@@ -730,22 +720,25 @@ Alt+Shift+Z 重构的后悔药(Undo)<br>
 
           </div>
           
-  <div class="comments" id="comments"></div>
-    
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
-    <script>
-        new Valine({
-            av: AV,
-            el: '.comments',
-            notify: false, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
-            verify: false,
-            app_id: '',
-            app_key: '',
-            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
-        });
-    </script>
-    
+
+  
+    <div class="comments" id="comments">
+        <script>
+            new Valine({
+                av: AV,
+                el: '.comments',
+                notify: false, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
+                verify: false,
+                app_id: '',
+                app_key: '',
+                placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+            });
+        </script>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1185,8 +1178,8 @@ Alt+Shift+Z 重构的后悔药(Undo)<br>
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: true,
-    lang: 'zh-CN' || 'zh-cn'
+    visitor: false,
+    lang: '' || 'zh-cn'
   });
 </script>
 
