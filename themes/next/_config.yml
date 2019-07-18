@@ -58,7 +58,7 @@ footer:
     # If you want to animate the icon, set it to true.
     animated: true
     # Change the color of icon, using Hex Code.
-    color: "red"
+    color: "black"
 
   # If not defined, `author` from Hexo main config will be used.
   copyright: Mr.Ge
@@ -92,8 +92,8 @@ footer:
 # Valid values of language: deed.zh, deed.fr, deed.de, etc.
 creative_commons:
   license: by-nc-sa
-  sidebar: true
-  post: true
+  sidebar: false
+  post: false
   language:
 
 # `Follow me on GitHub` banner in the top-right corner.
@@ -161,9 +161,6 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  JavaSE: /JavaSE阶段知识点复习 || th
-  JavaEE: /JavaEE阶段知识点复习 || th
-  Java踩坑纪实录: /Java踩坑纪实录 || th
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
