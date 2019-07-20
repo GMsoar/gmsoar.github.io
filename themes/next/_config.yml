@@ -990,9 +990,9 @@ canvas_nest:
 # three_waves
 three_waves: false
 # canvas_lines
-canvas_lines: true
+canvas_lines: false
 # canvas_sphere
-canvas_sphere: true
+canvas_sphere: false
 
 # Canvas-ribbon
 # Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon
