@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gmsoar.github.io/"/>
-  <updated>2019-08-01T10:11:58.320Z</updated>
+  <updated>2019-08-11T08:47:23.651Z</updated>
   <id>https://gmsoar.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式-适配器设计模式</title>
+    <link href="https://gmsoar.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://gmsoar.github.io/设计模式/</id>
+    <published>2019-08-11T07:08:36.000Z</published>
+    <updated>2019-08-11T08:47:23.651Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="适配器设计模式"><a href="#适配器设计模式" class="headerlink" title="适配器设计模式"></a>适配器设计模式</h2><ol><li>解决何种问题：解决接口与接口实现类之间继承矛盾问题</li><li>适配器设计模式特征：<br>1） 使用抽象类分离了接口与【接口实现】<br>2） 抽象类分摊接口中需要常用的方法<br>3） 使得【接口实现类】像逛超市一样，可以随意选择接口中的方法来实现</li></ol><p><strong>学习JavaWeb的时候每个人都会学到的Servlet，我们都会去继承HttpServlet,本质上也是采用了适配器设计模式的结果</strong></p><p><strong>在源码中让GenericServlet抽象类去实现Servlet接口</strong></p><hr><h2 id="模板设计模式"><a href="#模板设计模式" class="headerlink" title="模板设计模式"></a>模板设计模式</h2><ol><li><p>解决何种问题：让父类控制子类方法的调用顺序<br>1）例如在父类中使用final来控制子类对父类方法的重写之后，方法的执行顺序</p></li><li><p>模板设计模式的好处<br>1）开发人员在开发时，只需要考虑方法的实现，不需要考虑方法在何时何种情况下被调用</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="23种设计模式" scheme="https://gmsoar.github.io/categories/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://gmsoar.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="适配器设计模式" scheme="https://gmsoar.github.io/tags/%E9%80%82%E9%85%8D%E5%99%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaEE-Spring框架之IOC容器入门以及DI注入(一)</title>
