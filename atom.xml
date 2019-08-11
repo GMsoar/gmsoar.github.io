@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gmsoar.github.io/"/>
-  <updated>2019-08-11T08:47:23.651Z</updated>
+  <updated>2019-08-11T12:56:42.156Z</updated>
   <id>https://gmsoar.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>设计模式-适配器设计模式</title>
+    <title>设计模式</title>
     <link href="https://gmsoar.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://gmsoar.github.io/设计模式/</id>
     <published>2019-08-11T07:08:36.000Z</published>
-    <updated>2019-08-11T08:47:23.651Z</updated>
+    <updated>2019-08-11T12:56:42.156Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="适配器设计模式"><a href="#适配器设计模式" class="headerlink" title="适配器设计模式"></a>适配器设计模式</h2><ol><li>解决何种问题：解决接口与接口实现类之间继承矛盾问题</li><li>适配器设计模式特征：<br>1） 使用抽象类分离了接口与【接口实现】<br>2） 抽象类分摊接口中需要常用的方法<br>3） 使得【接口实现类】像逛超市一样，可以随意选择接口中的方法来实现</li></ol><p><strong>学习JavaWeb的时候每个人都会学到的Servlet，我们都会去继承HttpServlet,本质上也是采用了适配器设计模式的结果</strong></p><p><strong>在源码中让GenericServlet抽象类去实现Servlet接口</strong></p><hr><h2 id="模板设计模式"><a href="#模板设计模式" class="headerlink" title="模板设计模式"></a>模板设计模式</h2><ol><li><p>解决何种问题：让父类控制子类方法的调用顺序<br>1）例如在父类中使用final来控制子类对父类方法的重写之后，方法的执行顺序</p></li><li><p>模板设计模式的好处<br>1）开发人员在开发时，只需要考虑方法的实现，不需要考虑方法在何时何种情况下被调用</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="适配器设计模式"><a href="#适配器设计模式" class="headerlink" title="适配器设计模式"></a>适配器设计模式</h2><ol><li>解决何种问题：解决接口与接口实现类之间继承矛盾问题</li><li>适配器设计模式特征：<br>1） 使用抽象类分离了接口与【接口实现】<br>2） 抽象类分摊接口中需要常用的方法<br>3） 使得【接口实现类】像逛超市一样，可以随意选择接口中的方法来实现</li></ol><p><strong>学习JavaWeb的时候每个人都会学到的Servlet，我们都会去继承HttpServlet,本质上也是采用了适配器设计模式的结果</strong></p><p><strong>在源码中让GenericServlet抽象类去实现Servlet接口</strong></p><hr><h2 id="模板设计模式"><a href="#模板设计模式" class="headerlink" title="模板设计模式"></a>模板设计模式</h2><ol><li><p>解决何种问题：让父类控制子类方法的调用顺序<br>1）例如在父类中使用final来控制子类对父类方法的重写之后，方法的执行顺序</p></li><li><p>模板设计模式的好处<br>1）开发人员在开发时，只需要考虑方法的实现，不需要考虑方法在何时何种情况下被调用</p></li></ol><h2 id="代理设计模式"><a href="#代理设计模式" class="headerlink" title="代理设计模式"></a>代理设计模式</h2><ol><li><p>解决何种问题：将【次要业务】和【主要业务】解耦和</p></li><li><p>【次要业务】和【主要业务】区分：</p><blockquote><blockquote><p>【次要业务】：起到辅助功能，辅助【主要业务】顺利实现。<br>在项目中【次要业务】往往大量重复出现</p></blockquote></blockquote><blockquote><blockquote><p>【主要业务】：主要任务。</p></blockquote></blockquote></li></ol><p>3.【次要业务】对于开发效率的影响</p><p><strong>回忆JDBC</strong>：</p><blockquote><p>1）加载驱动类【次要业务】<br>2）建立连接通道【次要业务】<br>3）建立数据库操作对象【次要业务】<br>4）推送sql命令到数据库执行并返回处理结果【主要业务】<br>5）销毁connection、statement、resultset。。。【次要业务】</p></blockquote><p>4.<strong>代理模式本质：行为监听</strong><br>代理对象：$proxy <strong>InvocationHandler</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--打个比方可以这样理解--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"fun1"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--“buttn按钮可以理解为就是代理，点击行为本质上形成监听效果”--&gt;</span></span><br></pre></td></tr></table></figure><ol start="5"><li>代理模式组成<blockquote><p>1）接口：声明需要被代理的接口<br>2）代理实现类（InvocationHandler）：次要业务 次要业务和主要业务绑定执行<br>3）代理对象（监听对象）</p></blockquote></li></ol>]]></content>
     
     <summary type="html">
     
