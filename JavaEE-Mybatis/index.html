@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Mr.Ge&#39;s Blog">
 <meta property="og:description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-12T13:20:47.713Z">
+<meta property="og:updated_time" content="2019-08-16T06:38:16.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaEE-Mybatis">
 <meta name="twitter:description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
@@ -406,13 +406,23 @@
                 
               
 
-              <time title="创建时间：2019-08-12 21:03:58 / 修改时间：21:20:47" itemprop="dateCreated datePublished" datetime="2019-08-12T21:03:58+08:00">2019-08-12</time>
+              <time title="创建时间：2019-08-12 21:03:58" itemprop="dateCreated datePublished" datetime="2019-08-12T21:03:58+08:00">2019-08-12</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-16 14:38:16" itemprop="dateModified" datetime="2019-08-16T14:38:16+08:00">2019-08-16</time>
+              </span>
             
           
 
@@ -497,73 +507,118 @@
 
 2.框架内部某一个类的时候，一定要观察类的继承关系</code></pre><h2 id="四-JDBC流程"><a href="#四-JDBC流程" class="headerlink" title="四.JDBC流程"></a>四.JDBC流程</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line"> Connection con = DriverManager.getConnection(<span class="string">"jdbc:mysql://localhost:3306/kkb"</span>,<span class="string">"root"</span>,<span class="string">"123"</span>)</span><br><span class="line"> con.setAutoCommit(<span class="keyword">false</span>)</span><br><span class="line"> PreparedStatement ps = con.preparedStatement(sql);</span><br><span class="line"></span><br><span class="line"> ps.setInt();</span><br><span class="line"> ps.setString();</span><br><span class="line"></span><br><span class="line"> <span class="keyword">try</span>&#123;</span><br><span class="line">     <span class="keyword">int</span> num=  ps.executeUpdate();DML</span><br><span class="line">     ResultSet rs=   ps.executeQuery(); DQL</span><br><span class="line">     ps.executeBatch();</span><br><span class="line">     con.commit();</span><br><span class="line"> &#125;<span class="keyword">catch</span>(SQLException ex)&#123;</span><br><span class="line">     con.rollback();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> con.close();</span><br><span class="line"> ps.close()</span><br><span class="line"></span><br><span class="line"> map(<span class="string">"insert into xxxx"</span>,ps1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">String xPath =<span class="string">"//bean"</span></span><br><span class="line">String xPath =<span class="string">"//@name"</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="五-Executor-执行器-："><a href="#五-Executor-执行器-：" class="headerlink" title="五.Executor(执行器)："></a>五.Executor(执行器)：</h2><pre><code>1.【基本介绍】
-    每一个SqlSession对象都会被分配一个【执行器对象】。
-   【执行器对象】主要负责【Connection获取】和【Statement对象管理方案】
+<h2 id="五-Executor-执行器-："><a href="#五-Executor-执行器-：" class="headerlink" title="五.Executor(执行器)："></a>五.Executor(执行器)：</h2><p>1.【基本介绍】</p>
+<blockquote>
+<p>每一个SqlSession对象都会被分配一个【执行器对象】。<br>【执行器对象】主要负责【Connection获取】和【Statement对象管理方案】</p>
+</blockquote>
+<p>2.【Statement对象管理方案】</p>
+<blockquote>
+<p>1）简单管理方案：一个Statement接口对象只执行一次。执行完毕就Statement接口对象进行销毁</p>
+</blockquote>
+<blockquote>
+<p>2）可重用方案： 使用一个Map集合，关键字就是一条Sql语句。对应内容Statement接口对象,等到SqlSession再次接收到相同命令时，就从map集合找到对应Statement接口使用map.put(“select * from order”, Statement1)</p>
+</blockquote>
+<blockquote>
+<p>3）批处理管理方案：将多个Statement包含的SQL语句，交给一个Statement对象输送到数据库，形成批处理操作</p>
+</blockquote>
+<p>3.执行器继承关系</p>
+<blockquote>
+<p>1）Executor接口有两个实现类：</p>
+<blockquote>
+<p>BaseExecutor<br>CachingExecutor</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>2） BaseExecutor:抽象类；减轻Executor接口实现难度。</p>
+</blockquote>
+<blockquote>
+<p>3）CachingExecutour:提高查询效率，在查询时首先到缓存中寻找对应的数据。<br>如果有直接返回，MyBatis框架默认情况下使用执行器缓存执行器<br>如果缓存执行器没有得到对应结果时，才会交给其他的执行器执行</p>
+</blockquote>
+<h2 id="六-StatementHandler接口"><a href="#六-StatementHandler接口" class="headerlink" title="六.StatementHandler接口"></a>六.StatementHandler接口</h2><p>1.介绍：</p>
+<p>主要负责【Statement或则PreparedStatment或则CallableStatment】创建工作</p>
+<p>同时负责【PreparedStatment或则CallableStatment】运输的SQL语句中占位符赋值任务。此外负责数据库操作对象的运行行为【update】和【query】</p>
+<p>2.关注方法：4个</p>
+<blockquote>
+<p>1） prepare: 创建Statement对象或则PreparedStatment或则CallableStatment</p>
+</blockquote>
+<blockquote>
+<p>2） parameterize:主要针对PreparedStatment或则CallableStatment关联预编译SQL语句中占位符进行修改</p>
+</blockquote>
+<blockquote>
+<p>3） update： 如何推送 insert ,update,delete</p>
+</blockquote>
+<blockquote>
+<p>4） query :  推送查询</p>
+</blockquote>
+<p>3.StatementHandler继承</p>
+<blockquote>
+<p>BaseStatementHandler:抽象类;<br>负责实现 prpare方法</p>
+<p>RoutingStatementHandler：？？？？？</p>
+</blockquote>
+<blockquote>
+<p><strong>BaseStatementHandler拥有三个子类</strong><br>   SimpleStatmentHandler: Statement对象进行初始化<br>   PreparedStatementHandler: 预初编译对象PreparedStatement进行初始化<br>   CallableStatementHandler: CallableStatment</p>
+</blockquote>
+<p>   4.关于三种数据库操作对象选择，不需要认为控制。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">执行sql语句有关</span><br><span class="line"></span><br><span class="line">情况1： <span class="keyword">select</span>  *   <span class="keyword">from</span>  <span class="keyword">order</span>;SimpleStatementHander  Statement</span><br><span class="line">情况2:  <span class="keyword">select</span>  *   <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> orderIdPreparedStatementHandler PreparedStatement</span><br><span class="line">情况<span class="number">3</span>： <span class="keyword">call</span>&#123;pro&#125;   CallableStatementHandler   CallableStatment</span><br></pre></td></tr></table></figure>
 
-2.【Statement对象管理方案】
-    1）简单管理方案：一个Statement接口对象只执行一次。执行完毕就
-        Statement接口对象进行销毁
-    2）可重用方案： 使用一个Map集合，关键字就是一条Sql语句。对应内容Statement接口对象,等到SqlSession再次接收到相同命令时，就从map集合找到对应Statement接口使用map.put(&quot;select * from order&quot;, Statement1)
-    3）批处理管理方案：将多个Statement包含的SQL语句，交给一个Statement对象输送到数据库，形成批处理操作
-
-3.执行器继承关系
-
-    1）Executor接口有两个实现类：
-                  BaseExecutor
-                  CachingExecutor
-
-          2) BaseExecutor:抽象类；减轻Executor接口实现难度。
-          3）CachingExecutour:提高查询效率，在查询时首先到缓存中寻找对应的数据。
-                              如果有直接返回，MyBatis框架默认情况下使用执行器缓存执行器
-                              如果缓存执行器没有得到对应结果时，才会交给其他的执行器执行</code></pre><h2 id="六-StatementHandler接口"><a href="#六-StatementHandler接口" class="headerlink" title="六.StatementHandler接口"></a>六.StatementHandler接口</h2><pre><code>  1.介绍：
-
-         主要负责【Statement或则PreparedStatment或则CallableStatment】创建工作
-         同时负责【PreparedStatment或则CallableStatment】运输的SQL语句中占位符
-         赋值任务。此外负责数据库操作对象的运行行为【update】和【query】
-
- 2.关注方法：4个
-
-         1 prepare: 创建Statement对象或则PreparedStatment或则CallableStatment
-         2 parameterize:主要针对PreparedStatment或则CallableStatment关联预编译
-                         SQL语句中占位符进行修改
-
-         3 update： 如何推送 insert ,update,delete
-         4 query :  推送查询
-
-3.StatementHandler继承
-
-        BaseStatementHandler:抽象类;
-                             负责实现 prpare方法
-
-        RoutingStatementHandler：？？？？？
-
-
-
-        BaseStatementHandler拥有三个子类
-
-           SimpleStatmentHandler: Statement对象进行初始化
-          PreparedStatementHandler: 预初编译对象PreparedStatement进行初始化
-          CallableStatementHandler: CallableStatment</code></pre><p>   4.关于三种数据库操作对象选择，不需要认为控制。</p>
-<pre><code>       执行sql语句有关
-
-       情况1： select  *   from  order;   SimpleStatementHander  Statement
-       情况2:  select  *   from order where orderId=? PreparedStatementHandler PreparedStatement
-       情况3： call{pro}                   CallableStatementHandler   CallableStatment
-
-
-Dom4j.jar（XPath）  读取xml文档</code></pre><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dept&#123;</span><br><span class="line">       deptno <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">       dname  <span class="built_in">varchar</span>(<span class="number">200</span>),</span><br><span class="line">       loc    <span class="built_in">varchar</span>(<span class="number">20</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<p><strong>建议先需要了解Dom4j.jar（XPath）  读取xml文档</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dept&#123;</span><br><span class="line">    deptno <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    dname  <span class="built_in">varchar</span>(<span class="number">200</span>),</span><br><span class="line">    loc    <span class="built_in">varchar</span>(<span class="number">20</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+<h2 id="七-ParameterHandler-参数处理器"><a href="#七-ParameterHandler-参数处理器" class="headerlink" title="七.ParameterHandler(参数处理器)"></a>七.ParameterHandler(参数处理器)</h2><p>  1.介绍：<br>        1.ParameterHandler是接口<br>        2.ParameterHandler接口作用为了【PreparedStatement】和【CallableStatement】的输送的SQL语句中占位符进行赋值处理。</p>
+<p>  2.接口关键的方法</p>
+<blockquote>
+<p>   Object getParameterObject(); 读取开发人员提供参数内容</p>
+</blockquote>
+<blockquote>
+<p>   setParameters(PreparedStatement ps)负责将参数内容设置到数据库操作对象中输送的sql语句的占位符上</p>
+</blockquote>
+<blockquote>
+<p>ps.setInt(占位符位置，参数内容)<br>ps.setString(占位符位置，参数内容)</p>
+</blockquote>
+<p>  3.ParameterHandler接口的实现</p>
+<blockquote>
+<p>DefaultParameterHandler</p>
+</blockquote>
+<p>  4.DefaultParameterHandler实现类属性介绍</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">      类型转换处理器：映射Java中数据类型与数据库中数据类型对应关系</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> TypeHandlerRegistry typeHandlerRegistry;</span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">        映射sql语句与数据库操作对象关系</span></span><br><span class="line"><span class="comment">        以及sql关联的sql标签信息</span></span><br><span class="line"><span class="comment">         </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> MappedStatement mappedStatement;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">        存储的需要进行赋值参数内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> Object parameterObject;</span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">        输送的具体的sql语句</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> BoundSql boundSql;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">      包含myBatis框架【核心配置文件信息】和【sql映射文件信息】</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Configuration configuration;</span><br></pre></td></tr></table></figure>
 
+<p>  5.参数处理器被创建时机。</p>
+<pre><code>ParameterHandler(参数处理器)在StatementHandler被创建时被创建的。</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">具体创建步骤：</span><br><span class="line">ParameterHandler  parameterHandler  = <span class="keyword">new</span> DefaultParameterHandler();</span><br><span class="line">parameterHandler = (ParameterHandler) interceptorChain.pluginAll(parameterHandler);</span><br><span class="line">实际上希望返回的是一个参数处理的代理对象（监听对象）</span><br></pre></td></tr></table></figure>
 
+<p>  6.参数处理器得到参数内容是从哪里得到</p>
+<hr>
+<h2 id="八-ResultSetHandler-结果处理器"><a href="#八-ResultSetHandler-结果处理器" class="headerlink" title="八.ResultSetHandler(结果处理器)"></a>八.ResultSetHandler(结果处理器)</h2><p> 1.ResultSetHandler(结果处理器)作用：</p>
+<blockquote>
+<p>将当前对数据库操作的结果映射为一个Java对象</p>
+</blockquote>
+<p> 2.ResultSetHandler接口主要方法</p>
+<blockquote>
+<p>handleResultSets(Statement stmt) throws SQLException</p>
+</blockquote>
+<hr>
+<h2 id="九-MyBatis插件开发"><a href="#九-MyBatis插件开发" class="headerlink" title="九.MyBatis插件开发"></a>九.MyBatis插件开发</h2><p>1.【MyBatis插件开发】本质：</p>
+<blockquote>
+<pre><code>JDK动态代理设计模式的封装版</code></pre></blockquote>
+<p>2.【MyBatis插件开发】作用：</p>
+<blockquote>
+<pre><code>监听MyBatis中四大神器的行为，在四大神器运行时进行代码植入。</code></pre></blockquote>
+<p>3.【MyBatis作者给开发人员留下后门】：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过源代码可以发现，四大神器对象创建几乎都会涉方法</span><br><span class="line">interceptorChain.pluginAll（四大神器对象）</span><br><span class="line">parameterHandler = (ParameterHandlinterceptorChain.pluginAll(parameterHandler);</span><br><span class="line">resultSetHandler = (ResultSetHandlinterceptorChain.pluginAll(resultSetHandler);</span><br><span class="line">executor = (Executor) interceptorChain.plugi(executor);</span><br><span class="line">statementHandler = (StatementHandlinterceptorChain.pluginAll(statementHandler);</span><br></pre></td></tr></table></figure>
 
+<p>4.pluginAll方法做了什么</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">pluginAll</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Interceptor interceptor : interceptors) &#123;</span><br><span class="line">            target = interceptor.plugin(target);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    将四大神器某一个实例对象交给【Interceptor】管理返回【代理对象】</span><br></pre></td></tr></table></figure>
 
-
-
-
+<p> 5.Interceptor接口作用：</p>
+<blockquote>
+<p>拦截器接口，通过实现这个接口开发人员可以对四大神器对象进行监控处理。</p>
+</blockquote>
+<p> 6.如何开发自己的拦截器【也就是常说插件】</p>
+<blockquote>
+<pre><code>第一件事： 开发一个Interceptor接口的实现类
+第二件事： 需要重写Interceptor接口方法
+第三件事： 在mybatis框架通过核心配置注册拦截器
+第四件事： 需要通过@Intercpts指定当前拦截器监听的神器类型和行为</code></pre></blockquote>
 
       
     </div>
@@ -927,7 +982,7 @@ Dom4j.jar（XPath）  读取xml文档</code></pre><figure class="highlight sql">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-MyBatis本质："><span class="nav-number">1.</span> <span class="nav-text">一.MyBatis本质：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-MyBatis与Hibernate比较"><span class="nav-number">2.</span> <span class="nav-text">二.MyBatis与Hibernate比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-如何看框架源码："><span class="nav-number">3.</span> <span class="nav-text">三.如何看框架源码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-JDBC流程"><span class="nav-number">4.</span> <span class="nav-text">四.JDBC流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Executor-执行器-："><span class="nav-number">5.</span> <span class="nav-text">五.Executor(执行器)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-StatementHandler接口"><span class="nav-number">6.</span> <span class="nav-text">六.StatementHandler接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-MyBatis本质："><span class="nav-number">1.</span> <span class="nav-text">一.MyBatis本质：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-MyBatis与Hibernate比较"><span class="nav-number">2.</span> <span class="nav-text">二.MyBatis与Hibernate比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-如何看框架源码："><span class="nav-number">3.</span> <span class="nav-text">三.如何看框架源码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-JDBC流程"><span class="nav-number">4.</span> <span class="nav-text">四.JDBC流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Executor-执行器-："><span class="nav-number">5.</span> <span class="nav-text">五.Executor(执行器)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-StatementHandler接口"><span class="nav-number">6.</span> <span class="nav-text">六.StatementHandler接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-ParameterHandler-参数处理器"><span class="nav-number">7.</span> <span class="nav-text">七.ParameterHandler(参数处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-ResultSetHandler-结果处理器"><span class="nav-number">8.</span> <span class="nav-text">八.ResultSetHandler(结果处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-MyBatis插件开发"><span class="nav-number">9.</span> <span class="nav-text">九.MyBatis插件开发</span></a></li></ol></div>
             
 
           </div>
