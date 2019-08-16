@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Mr.Ge&#39;s Blog">
 <meta property="og:description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-16T06:38:16.824Z">
+<meta property="og:updated_time" content="2019-08-16T07:04:18.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaEE-Mybatis">
 <meta name="twitter:description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-16 14:38:16" itemprop="dateModified" datetime="2019-08-16T14:38:16+08:00">2019-08-16</time>
+                <time title="修改时间：2019-08-16 15:04:18" itemprop="dateModified" datetime="2019-08-16T15:04:18+08:00">2019-08-16</time>
               </span>
             
           
@@ -619,6 +619,69 @@
 第二件事： 需要重写Interceptor接口方法
 第三件事： 在mybatis框架通过核心配置注册拦截器
 第四件事： 需要通过@Intercpts指定当前拦截器监听的神器类型和行为</code></pre></blockquote>
+<h2 id="十-myBatis框架中缓存分类"><a href="#十-myBatis框架中缓存分类" class="headerlink" title="十. myBatis框架中缓存分类:"></a>十. myBatis框架中缓存分类:</h2><p><strong>一级缓存:</strong></p>
+<blockquote>
+<blockquote>
+<p>[会话缓存]。在当前用户访问数据库期间，所有的查询结果都会自动保存起来。用户可以使用SqlSession从一级缓存中进行读取。而其他用户的SqlSession是不能读取当前用户的一级缓存一级缓存自动开启，开发人员是不能关闭一级缓存</p>
+</blockquote>
+</blockquote>
+<p><strong>二级缓存：</strong></p>
+<blockquote>
+<blockquote>
+<p>【全局缓存】，<br>1.二级缓存针对某一个表来设置的共享缓存<br>2.如果一个SqlSession对象将要被销毁时，MyBatis框架自动将这个SqlSession中与当前表关联的数据存放到这个共享缓存中.<br>3.那么此时其他SqlSession如果需要得到相同的数据，就可以到共享缓存中读取<br>4.由于二级缓存对于服务端内存消耗较大，因此MyBatis框架是不会主动开发二级缓存，需要开发人员手动开启二级。</p>
+</blockquote>
+</blockquote>
+<p>1.一级缓存失效原因：</p>
+<blockquote>
+<p>1.同一个用户，使用两个SqlSession，是看不到一级缓存工作。</p>
+</blockquote>
+<blockquote>
+<p>2.在一个SqlSession,使用查询条件不同，也会导致一级缓存失效</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dept <span class="keyword">where</span> deptno=<span class="number">10</span>    结果<span class="number">1</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dept <span class="keyword">where</span> deptno=<span class="number">20</span>    结果<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.在一个SqlSession使用相同查询条件此时在查询之间进行数据修改操作导致一级缓存刷新（清空）</p>
+</blockquote>
+<blockquote>
+<p>4.在一个SqlSession使用相同查询条件此时手动刷新缓存时导致一级缓存失败</p>
+</blockquote>
+<p>2.二级缓存中涉及的属性</p>
+<blockquote>
+<p>1.flushCache:<br>【作 用】:刷新缓存<br>【使 用】：</p>
+</blockquote>
+<blockquote>
+<p>flushCache=”true” 刷新缓存<br>出现在&lt;select flushCache=”true”&gt;这条sql语句执行完毕后，同时刷新一级缓存和二级缓存失效</p>
+</blockquote>
+<blockquote>
+<p>flushCache=”false” 不刷新缓存<br>出现在&lt;update&gt;时，导致缓存没有被刷新，因此先后两次查询的结果实际都是一样的。导致错误查询数据产生</p>
+</blockquote>
+<p>3.与MyBatis中【一级缓存】和【二级缓存】关联的属性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1.全句变量:核心配置文件</span><br><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"cacheEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br><span class="line">1）cacheEnabled[默认值就是true]: 表示开启二级缓存</span><br><span class="line">2）cacheEnabled=false,关闭二级缓存。一级缓存依然存在</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.useCache: mapper.xml 会在<span class="tag">&lt;<span class="name">select</span>&gt;</span>出现属性</span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findDeptByNo"</span> <span class="attr">resultType</span>=<span class="string">"dept"</span> <span class="attr">useCache</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">1)useCache只出现在<span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">2)useCache默认值就是true</span><br><span class="line">3)userCache设置false时，对于一级缓存没有任何影响,此时第一个SqlSession与当前查询语句关联的结果，在第一个SqlSession关闭时是不会放到二级缓存中。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3.flushCache:mapper.xml</span><br><span class="line">1）flushCache会出现【添加，更新，删除，查询】标签 </span><br><span class="line">2）flushCache属性决定当前SQL执行完毕后，是否会刷新（清空）缓存</span><br><span class="line">3）flushCache在【添加，更新，删除】标签中，默认值true  </span><br><span class="line">（清空一级缓存数据/清空二级缓存对应的mapper.xml所有数据）</span><br><span class="line">4）flushCache在【添加，更新，删除】标签中，设置为false</span><br><span class="line">(清空一级缓存数据/不会清空二级缓存数据) </span><br><span class="line">5）flushCache也可以在【查询标签出现】，默认值false</span><br><span class="line">(一级缓存和二级缓存都可以使用)</span><br><span class="line">6）flushCache在查询标签中设置为true。（查询结果不会保存到一级缓存和二级缓存）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4.sqlSession.clearCache(): 只会清空当前会话的一级缓存。不会影响数据保存到二级缓存</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十一-MyBatis框架中事务管理方式"><a href="#十一-MyBatis框架中事务管理方式" class="headerlink" title="十一.MyBatis框架中事务管理方式"></a>十一.MyBatis框架中事务管理方式</h2><p>1.什么是事务</p>
+<blockquote>
+<p>就是数据库一个备份方案</p>
+</blockquote>
+<p> 2.JDBC 如何控制事务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">connection.setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line">通知数据库，只要是从这个通道推送的sql语句当做一个整体处理，只做一次备份。对于操作的结果是否是提交还是回滚由当前通道说得算。</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    ps.addBatch();</span><br><span class="line">    con.commit();</span><br><span class="line">&#125;<span class="keyword">catch</span>(SQLException ex)&#123;</span><br><span class="line">    con.rollback()</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 3.MyBatis框架对于事务管理方式:</p>
+<blockquote>
+<p>1.MyBatis框架中亲自完成JDBC事务管理细节</p>
+</blockquote>
+<blockquote>
+<p>2.把事务管理细节交给管理MyBatis框架的其他框架（Spring）</p>
+</blockquote>
+<p> 4.Transaction接口：</p>
+<blockquote>
+<p>getConnection(): 获得connection<br>close（）:        关闭或则返还connection<br>commit（）：      提交事务<br>rollback（）：    事务回滚</p>
+</blockquote>
+<p> 5.Transaction接口的实现类:</p>
+<blockquote>
+<p>1.JDBCTransaction：MyBatis亲自实现事务管理细节<br>2.ManagedTransaction：委托其他框架来提供事务管理细节</p>
+</blockquote>
 
       
     </div>
@@ -982,7 +1045,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-MyBatis本质："><span class="nav-number">1.</span> <span class="nav-text">一.MyBatis本质：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-MyBatis与Hibernate比较"><span class="nav-number">2.</span> <span class="nav-text">二.MyBatis与Hibernate比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-如何看框架源码："><span class="nav-number">3.</span> <span class="nav-text">三.如何看框架源码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-JDBC流程"><span class="nav-number">4.</span> <span class="nav-text">四.JDBC流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Executor-执行器-："><span class="nav-number">5.</span> <span class="nav-text">五.Executor(执行器)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-StatementHandler接口"><span class="nav-number">6.</span> <span class="nav-text">六.StatementHandler接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-ParameterHandler-参数处理器"><span class="nav-number">7.</span> <span class="nav-text">七.ParameterHandler(参数处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-ResultSetHandler-结果处理器"><span class="nav-number">8.</span> <span class="nav-text">八.ResultSetHandler(结果处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-MyBatis插件开发"><span class="nav-number">9.</span> <span class="nav-text">九.MyBatis插件开发</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-MyBatis本质："><span class="nav-number">1.</span> <span class="nav-text">一.MyBatis本质：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-MyBatis与Hibernate比较"><span class="nav-number">2.</span> <span class="nav-text">二.MyBatis与Hibernate比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-如何看框架源码："><span class="nav-number">3.</span> <span class="nav-text">三.如何看框架源码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-JDBC流程"><span class="nav-number">4.</span> <span class="nav-text">四.JDBC流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Executor-执行器-："><span class="nav-number">5.</span> <span class="nav-text">五.Executor(执行器)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-StatementHandler接口"><span class="nav-number">6.</span> <span class="nav-text">六.StatementHandler接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-ParameterHandler-参数处理器"><span class="nav-number">7.</span> <span class="nav-text">七.ParameterHandler(参数处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-ResultSetHandler-结果处理器"><span class="nav-number">8.</span> <span class="nav-text">八.ResultSetHandler(结果处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-MyBatis插件开发"><span class="nav-number">9.</span> <span class="nav-text">九.MyBatis插件开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十-myBatis框架中缓存分类"><span class="nav-number">10.</span> <span class="nav-text">十. myBatis框架中缓存分类:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一-MyBatis框架中事务管理方式"><span class="nav-number">11.</span> <span class="nav-text">十一.MyBatis框架中事务管理方式</span></a></li></ol></div>
             
 
           </div>
