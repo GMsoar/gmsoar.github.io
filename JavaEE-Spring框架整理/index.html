@@ -90,16 +90,18 @@
 
 
 
-  <meta name="description" content="一个提供个人学习历程，技术钻研，知识分享的博客平台。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Ge&#39;s Blog">
-<meta property="og:url" content="https://gmsoar.github.io/categories/Spring/index.html">
+  <meta name="description" content="Spring IOC容器注解式开发1.什么是IOC:  控制权反转。Spring作者认为开发人员应该关注与业务的实现。对于业务中涉及的对象【创建，初始化，销毁】管理不应该去涉及。应该将对象管理权全权交给Spring,从而简化开发强度  2.bean和组件  【组件】：委托Spring框架进行管理的JAVA类【bean】：就是实例对象，实在Spring框架被管理的实例对象  3.Spring IOC">
+<meta name="keywords" content="框架,Spring,IOC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaEE-Spring框架整理">
+<meta property="og:url" content="https://gmsoar.github.io/JavaEE-Spring框架整理/index.html">
 <meta property="og:site_name" content="Mr.Ge&#39;s Blog">
-<meta property="og:description" content="一个提供个人学习历程，技术钻研，知识分享的博客平台。">
+<meta property="og:description" content="Spring IOC容器注解式开发1.什么是IOC:  控制权反转。Spring作者认为开发人员应该关注与业务的实现。对于业务中涉及的对象【创建，初始化，销毁】管理不应该去涉及。应该将对象管理权全权交给Spring,从而简化开发强度  2.bean和组件  【组件】：委托Spring框架进行管理的JAVA类【bean】：就是实例对象，实在Spring框架被管理的实例对象  3.Spring IOC">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-16T08:22:57.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Ge&#39;s Blog">
-<meta name="twitter:description" content="一个提供个人学习历程，技术钻研，知识分享的博客平台。">
+<meta name="twitter:title" content="JavaEE-Spring框架整理">
+<meta name="twitter:description" content="Spring IOC容器注解式开发1.什么是IOC:  控制权反转。Spring作者认为开发人员应该关注与业务的实现。对于业务中涉及的对象【创建，初始化，销毁】管理不应该去涉及。应该将对象管理权全权交给Spring,从而简化开发强度  2.bean和组件  【组件】：委托Spring框架进行管理的JAVA类【bean】：就是实例对象，实在Spring框架被管理的实例对象  3.Spring IOC">
 
 
 
@@ -109,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="https://gmsoar.github.io/categories/Spring/">
+  <link rel="canonical" href="https://gmsoar.github.io/JavaEE-Spring框架整理/">
 
 
 
@@ -119,7 +121,7 @@
   };
 </script>
 
-  <title>分类: Spring | Mr.Ge's Blog</title>
+  <title>JavaEE-Spring框架整理 | Mr.Ge's Blog</title>
   
 
 
@@ -167,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
       <a href="https://github.com/GMsoar/gmsoar.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     </div>
@@ -259,7 +261,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -341,109 +343,439 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Spring<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gmsoar.github.io/JavaEE-Spring框架整理/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Ge">
+      <meta itemprop="description" content="一个提供个人学习历程，技术钻研，知识分享的博客平台。">
+      <meta itemprop="image" content="/images/001.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Ge's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/JavaEE-Spring框架整理/" itemprop="url">
-            
-              <span itemprop="name">JavaEE-Spring框架整理</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">JavaEE-Spring框架整理
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-16T15:39:12+08:00" content="2019-08-16">
-          08-16
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-16 15:39:12 / 修改时间：16:22:57" itemprop="dateCreated datePublished" datetime="2019-08-16T15:39:12+08:00">2019-08-16</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/JavaEE-Spring框架整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/JavaEE-Spring框架整理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="Spring-IOC容器注解式开发"><a href="#Spring-IOC容器注解式开发" class="headerlink" title="Spring IOC容器注解式开发"></a>Spring IOC容器注解式开发</h2><p>1.什么是IOC:</p>
+<blockquote>
+<p>控制权反转。Spring作者认为开发人员应该关注与业务的实现。<br>对于业务中涉及的对象【创建，初始化，销毁】管理不应该去涉及。<br>应该将对象管理权全权交给Spring,从而简化开发强度</p>
+</blockquote>
+<p>2.bean和组件</p>
+<blockquote>
+<p>【组件】：委托Spring框架进行管理的JAVA类<br>【bean】：就是实例对象，实在Spring框架被管理的实例对象</p>
+</blockquote>
+<p>3.Spring IOC容器实现功能：</p>
+<blockquote>
+<p>1.动态组件注册。<br>2.bean对象初始化管理<br>3.依赖注入（DI）<br>4.bean对象初始化前后，进行次要业务组装</p>
+</blockquote>
+<p>4.@Configuration:</p>
+<blockquote>
+<p>【作 用】：<br>可以将一个Java类修饰为【配置文件】，在这个Java类进行组件注册</p>
+</blockquote>
+<p>5.组件注册：</p>
+<p>1）@Bean</p>
+<blockquote>
+<p>【介绍】：<br>1）Spring框架提供注解<br>2）@Bean可以将一个Java类交给Spring管理.<br>3）@Bean要在【配置类】使用</p>
+</blockquote>
+<blockquote>
+<p>【特征】:<br>1）在默认时，以@Bean修饰的bean对象对应的关键字是【方法名】<br>2）如果在@Bean指定bean对象对应关键@Bean(value={“stu1”,”stu2”}),此时bean对象在Spring容器对应关键字就不是【方法名】，是stu1或则stu2<br>3）所有通过@Bean修饰生成的bean对象默认的情况下都是单例。<br>4）对于单例的bean对象，可以通过@Lazy延缓变对象被创建时机。</p>
+</blockquote>
+<p>2）@ComponentScan</p>
+<blockquote>
+<p>【介绍】：<br>1）Spring框架提供注解</p>
+<p>2）自动将指定包下的【类】加载到Spring容器<br>(@Controller,@Service,@Resposity,@Compoent)</p>
+<p>3）@ComponentScan 要在【配置类】使用</p>
+</blockquote>
+<blockquote>
+<p>【特征】：<br>1）可以将某些类排除在Spring容器之外<br>2）可以将某些类添加到Spring容器之内 </p>
+</blockquote>
+<p>3）FilterType:扫描过滤策略</p>
+<blockquote>
+<p>1）ANNOTATION 根据注解进行过滤(@Controller,@Service,@Resposity,@Compoent)<br>2）ASSIGNABLE_TYPE 根据指定类型<br>3）ASPECTJ表达式过滤<br>4）REGEX根据正则表达式过滤<br>5）CUSTOM,根据开发人员自行定义过滤规则</p>
+</blockquote>
+<p>4）如何自定义扫描过滤规则 </p>
+<blockquote>
+<p>1.FilterType.CUSTOM<br>第一步：</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在@ComponentScan(value="包路径",excludeFilters=&#123;@Filter(type=FilterType.CUSTOM,value=自定义过滤规则类.class)&#125;)</span><br></pre></td></tr></table></figure>
 
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/JavaEE-Spring框架之IOC容器入门以及DI注入一/" itemprop="url">
-            
-              <span itemprop="name">JavaEE-Spring框架之IOC容器入门以及DI注入(一)</span>
-            
-          </a>
-        
-      </h3>
+<blockquote>
+<p>2.@Conditional<br>【介绍】：<br>1）Spring框架提供注解<br>2）动态决定当前Java类是否有资格添加到Spring容器<br>3）在配置类中使用</p>
+</blockquote>
+<blockquote>
+<p>3.FactoryBean接口</p>
+</blockquote>
+<blockquote>
+<p>4.@Import</p>
+</blockquote>
+<p>6.bean对象赋值</p>
+<blockquote>
+<p>1.在当前类中指定属性上赋值：<br>@value;</p>
+<blockquote>
+<p>   基本数据<br>   SPEL #{}<br>   外部属性文件 properties ${key名字}</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>2.为工程中所有的类的指定属性赋值 【BeanPostProcessor(后置处理器)】</p>
+<blockquote>
+<p>BeanPostProcessor接口的【自定义直接实现类】可以在当前Spring容器所有的bean对象【初始化】前后被调用</p>
+</blockquote>
+</blockquote>
+<p>BeanPostProcessor(后置处理器)工作原理</p>
+<blockquote>
+<p>3.如果某一个类的bean对象在初始化时需要得到是Spring容器内容</p>
+<blockquote>
+<p>ApplicationContextAwareProcessor可以将【Spring容器】作为属性赋值给组件属性</p>
+</blockquote>
+</blockquote>
+<p>7.自动转配：DI</p>
+<blockquote>
+<p>1.@AutoWired： </p>
+<blockquote>
+<p>多个bean存在时，优先使用【类型名】进行赋值<br>多个bean存在时，可以是@Qualifier指定将某一个bean对象赋值给属性<br>@AuotWired（required=false），说明当前属性可以不被赋值<br>在默认情况下，依赖的属性如果没有被赋值，装配将会失败</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>多个bean存在时，可以使@Primary指定优先用于赋值的bean<br>使用@Primary导致@Qualifier失效。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>2.@Resource  javax.annotation包<br>3.@inject    javax.inject包</p>
+</blockquote>
+<p>8.BeanPostProcessor</p>
+<blockquote>
+<p>1.【介绍】：实际上就是代理模式中【次要业务实现】。会在bean对象被初始化之前和初始化之后被调用。</p>
+</blockquote>
+<blockquote>
+<p>2.【作用】：<br>        1)赋值<br>        2)为当前的bean对象提供【代理监听对象Proxy】</p>
+</blockquote>
+<blockquote>
+<p>3.【赋值】:<br>    1)将开发人员需要进行自定义赋值<br>    2）赋值内容可以是来自于Spring框架提供内部资源。</p>
+</blockquote>
+<blockquote>
+<p>4.Aware【接口】：<br>被【bean后置处理器】拦截的bean对象，只有实现了指定的Aware接口，才可以在初始化过程中得到Spring框架提供内部的资源.</p>
+</blockquote>
+<blockquote>
+<p>5.Aware接口中子接口介绍</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>1）BeanNameAware接口：实现了当前接口的类的bean对象在初始化时得到bean对象在Spring容器对应的name</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>2)EmbeddedValueResolverAware接口：实现了当前接口的类的bean对象在初始化时【字符串解析器】对SPEL以及属性内容表达式进行解析</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>3)ApplicatoinContextAware接口：实现了当前接口的类的bean对象在初始化时得到Spring的IOC容器</p>
+</blockquote>
+</blockquote>
+<p>6.Spring容器中的bean对象的生命周期问题.</p>
+<blockquote>
+<p>1.分类：<br>    单例Bean<br>    多例Bean</p>
+</blockquote>
+<blockquote>
+<p>2.单例Bean：<br>    在Spring容器启动时，由Spring容器负责创建。<br>    在Spring容器运行期间，单例Bean只会被创建一次.<br>    在Spring容器关闭时，抛弃Bean对象管理权。</p>
+</blockquote>
+<blockquote>
+<p>3.多例Bean：<br>    在Spring容器启动时，不会对多例(prototype)进行创建<br>    在Spring容器运行期间，用户每访问一次，多例Bean就会被创建一次。<br>    Spring容器不会管理多例Bean.  </p>
+</blockquote>
+<hr>
+<h2 id="Spring-AOP-原理"><a href="#Spring-AOP-原理" class="headerlink" title="Spring AOP 原理"></a>Spring AOP 原理</h2><p>1.Spring AOP 基于注解的实现方式.</p>
+<blockquote>
+<p>1.导入依赖jar</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-24T20:46:38+08:00" content="2019-07-24">
-          07-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<blockquote>
+<p>2.创建一个实现主要业务的类</p>
+</blockquote>
+<blockquote>
+<p>3.创建一个实现次要业务的类</p>
+</blockquote>
+<p>2.DeptService与LogAspect如何被关联到一起。</p>
+<blockquote>
+<p>1.在手写代理模式.<br>Proxy.newInstance(DeptService.class.getClassLoader(),DeptService.class.getIntgerfaces(),logAspect)</p>
+</blockquote>
+<blockquote>
+<p>2.在Spring框架中如何开发AOP<br>@EnableAspectJAutoProxy</p>
+</blockquote>
+<blockquote>
+<p>3.@EnableAspectJAutoProxy理解<br>1) @Import(AspectJAutoProxyRegistrar.class)</p>
+<blockquote>
+</blockquote>
+<p>2) AspectJAutoProxyRegistrar.class 向Spring容器注册一个Java类</p>
+<blockquote>
+</blockquote>
+<p>3) AnnotationAwareAspectJAutoProxyCreator.class<br>AspectJAwareAdvisorAutoProxyCreator<br>AbstractAdvisorAutoProxyCreator<br>AbstractAutoProxyCreator<br>【实现】SmartInstantiationAwareBeanPostProcessor–BeanPostProcessor<br>【实现】BeanFactoryAware</p>
+</blockquote>
+<p><strong>Aware</strong></p>
+<blockquote>
+<p>【身份】:<br>AnnotationAwareAspectJAutoProxyCreator可以在Spring对bean对象进行初始化时进行拦截<br>AnnotationAwareAspectJAutoProxyCreator可以在自己被初始化得到Spring容器内部的资源<br>【核心方法】：在AbstractAutoProxyCreator代替【AnnotationAwareAspectJAutoProxyCreator】实现<br>postProcessBeforeInstantiation<br>postProcessAfterInstantiation<br>【依赖知识点】：BeanPostProcessor对Spring容器中所有的bean对象的初始化进行拦截。所以【主要业务类】与【次要业务类】绑定关键点<br>postProcessBeforeInstantiation：并没有绑定代理监听对象<br>postProcessAfterInitialization //CGLIB代理模式绑定处理</p>
+</blockquote>
 
       
     </div>
 
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/weixin.jpg" alt="Mr.Ge 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE END <i class="fa fa-paw"></i> THANKS READ-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/框架/" rel="tag"><i class="fa fa-tag"></i> 框架</a>
+          
+            <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag"></i> Spring</a>
+          
+            <a href="/tags/IOC/" rel="tag"><i class="fa fa-tag"></i> IOC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaEE-Mybatis/" rel="next" title="JavaEE-Mybatis">
+                <i class="fa fa-chevron-left"></i> JavaEE-Mybatis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+        <script>
+            new Valine({
+                av: AV,
+                el: '.comments',
+                notify: false, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
+                verify: false,
+                app_id: '',
+                app_key: '',
+                placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+            });
+        </script>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -463,8 +795,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -660,6 +1001,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-IOC容器注解式开发"><span class="nav-number">1.</span> <span class="nav-text">Spring IOC容器注解式开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-AOP-原理"><span class="nav-number">2.</span> <span class="nav-text">Spring AOP 原理</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -826,6 +1184,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -867,6 +1229,8 @@
 
 
 
+
+  
 
 
   
@@ -1237,7 +1601,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script>
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#更多");
   
   </script>
 

@@ -91,14 +91,14 @@
 
 
   <meta name="description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
-<meta name="keywords" content="Java,框架,MyBatis">
+<meta name="keywords" content="框架,Java,MyBatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaEE-Mybatis">
 <meta property="og:url" content="https://gmsoar.github.io/JavaEE-Mybatis/index.html">
 <meta property="og:site_name" content="Mr.Ge&#39;s Blog">
 <meta property="og:description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-16T07:04:18.358Z">
+<meta property="og:updated_time" content="2019-08-16T07:36:42.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaEE-Mybatis">
 <meta name="twitter:description" content="一.MyBatis本质：就是代理模式体现。MyBatis作者思想认为JDBC开发流程中所有的步骤 都是次要业务，认为SQL编写主要任务。开发人员专注于SQL编写应该 忽略JDBC开发流程，轻度体现ORM思想。二.MyBatis与Hibernate比较1.Hibernate：杜绝开发人员亲自使用JDBC,杜绝亲自试用sql命令               Hibernate无法SQL优化">
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-16 15:04:18" itemprop="dateModified" datetime="2019-08-16T15:04:18+08:00">2019-08-16</time>
+                <time title="修改时间：2019-08-16 15:36:42" itemprop="dateModified" datetime="2019-08-16T15:36:42+08:00">2019-08-16</time>
               </span>
             
           
@@ -682,6 +682,19 @@
 <blockquote>
 <p>1.JDBCTransaction：MyBatis亲自实现事务管理细节<br>2.ManagedTransaction：委托其他框架来提供事务管理细节</p>
 </blockquote>
+<h2 id="十二-乐观锁："><a href="#十二-乐观锁：" class="headerlink" title="十二.乐观锁："></a>十二.乐观锁：</h2><p>1.什么是乐观锁</p>
+<blockquote>
+<p>1.不是数据库中真实存在的锁。<br>2.只是一种假设情况。认为多线程查询过程中不会出现问题<br>只有在多线程对表进行修改有可能出现线程问题</p>
+</blockquote>
+<p>2.乐观锁实现方案:</p>
+<blockquote>
+<p>1.在表中增加一个字段【数据行被修改的次数】<br>当两个会话（线程）查询时得到当前数据行全部内容<br>当其中一个会话对数据进行修改时，自动更新被修改次数。<br>同时在更新语句中被修改的次数要作为定位条件<br>此时另一个会话要进行更新导致更新失败</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span>  dept <span class="keyword">set</span> dname ? ,修改次数=修改次数+<span class="number">1</span> <span class="keyword">where</span> deptno=? <span class="keyword">and</span> [修改次数]=?</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.在表中增加一个字段(时间戳)</p>
+</blockquote>
 
       
     </div>
@@ -747,9 +760,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-          
             <a href="/tags/框架/" rel="tag"><i class="fa fa-tag"></i> 框架</a>
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
             <a href="/tags/MyBatis/" rel="tag"><i class="fa fa-tag"></i> MyBatis</a>
           
@@ -773,6 +786,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JavaEE-Spring框架整理/" rel="prev" title="JavaEE-Spring框架整理">
+                JavaEE-Spring框架整理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -858,7 +875,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -934,7 +951,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1045,7 +1064,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-MyBatis本质："><span class="nav-number">1.</span> <span class="nav-text">一.MyBatis本质：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-MyBatis与Hibernate比较"><span class="nav-number">2.</span> <span class="nav-text">二.MyBatis与Hibernate比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-如何看框架源码："><span class="nav-number">3.</span> <span class="nav-text">三.如何看框架源码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-JDBC流程"><span class="nav-number">4.</span> <span class="nav-text">四.JDBC流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Executor-执行器-："><span class="nav-number">5.</span> <span class="nav-text">五.Executor(执行器)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-StatementHandler接口"><span class="nav-number">6.</span> <span class="nav-text">六.StatementHandler接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-ParameterHandler-参数处理器"><span class="nav-number">7.</span> <span class="nav-text">七.ParameterHandler(参数处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-ResultSetHandler-结果处理器"><span class="nav-number">8.</span> <span class="nav-text">八.ResultSetHandler(结果处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-MyBatis插件开发"><span class="nav-number">9.</span> <span class="nav-text">九.MyBatis插件开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十-myBatis框架中缓存分类"><span class="nav-number">10.</span> <span class="nav-text">十. myBatis框架中缓存分类:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一-MyBatis框架中事务管理方式"><span class="nav-number">11.</span> <span class="nav-text">十一.MyBatis框架中事务管理方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-MyBatis本质："><span class="nav-number">1.</span> <span class="nav-text">一.MyBatis本质：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-MyBatis与Hibernate比较"><span class="nav-number">2.</span> <span class="nav-text">二.MyBatis与Hibernate比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-如何看框架源码："><span class="nav-number">3.</span> <span class="nav-text">三.如何看框架源码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-JDBC流程"><span class="nav-number">4.</span> <span class="nav-text">四.JDBC流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Executor-执行器-："><span class="nav-number">5.</span> <span class="nav-text">五.Executor(执行器)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-StatementHandler接口"><span class="nav-number">6.</span> <span class="nav-text">六.StatementHandler接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-ParameterHandler-参数处理器"><span class="nav-number">7.</span> <span class="nav-text">七.ParameterHandler(参数处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-ResultSetHandler-结果处理器"><span class="nav-number">8.</span> <span class="nav-text">八.ResultSetHandler(结果处理器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-MyBatis插件开发"><span class="nav-number">9.</span> <span class="nav-text">九.MyBatis插件开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十-myBatis框架中缓存分类"><span class="nav-number">10.</span> <span class="nav-text">十. myBatis框架中缓存分类:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一-MyBatis框架中事务管理方式"><span class="nav-number">11.</span> <span class="nav-text">十一.MyBatis框架中事务管理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二-乐观锁："><span class="nav-number">12.</span> <span class="nav-text">十二.乐观锁：</span></a></li></ol></div>
             
 
           </div>
